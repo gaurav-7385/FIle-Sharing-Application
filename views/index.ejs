@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <% if (typeof fileLink !== 'undefined' && fileLink) { %>
+        <div>
+            Your file has been uploaded:
+            <a href="<%= fileLink %>"><%= fileLink %></a>
+        </div>
+    <% } else { %>
+        <div>
+            No file uploaded yet.
+        </div>
+    <% } %>
+    <form action="/upload" method="post" enctype="multipart/form-data" style="display: grid; gap: .5rem; grid-template-columns: auto 1fr; max-width: 500px; margin: 10px auto;">
+        <label for="file">File:</label>
+        <input type="file" id="file" name="file" required />
+        <label for="password">Password (optional):</label>
+        <input type="password" id="password" name="password" />
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
